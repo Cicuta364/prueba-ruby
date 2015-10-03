@@ -28,5 +28,5 @@ peliculas.each do |p|
 end
 
 puts '.....'
-puts accion
+p accion
 puts "#{musica.count} peliculas de musica existentes"
