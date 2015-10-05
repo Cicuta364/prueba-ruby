@@ -2,28 +2,23 @@
 
 class Peliculas
 
-  attr_accessor :dvd_Title, :studio, :released, :status, :sound, :version, :price, :rating, :year, :genre, :aspect , :upc ,:dvd_releasedate, :id , :timestamp
+  attr_accessor :dvd_Title, :studio, :rating, :year, :genre, :aspect
 
   def initialize(data= {})
     @dvd_title = data[:dvd_title]
     @studio = data[:studio]
-    @released = data[:released]
-    @status = data[:status]
-    @sound = data[:sound]
-    @versions = data[:versions]
-    @price = data[:price]
     @rating = data[:rating]
     @year = data[:year]
     @genre = data[:genre]
     @aspect = data[:aspect]
-    @upc = data[:upc]
-    @dvd_releaseDate = data[:dvd_releaseDate]
-    @id = data[:id]
-    @timestamp = data[:timestamp]
+    @price = data[:price]
+  end
+
+
+  def to_s
+      "#{@dvd_title} (#{@genre}) del #{@year} fue clsificada con un #{@rating}"
   end
 end
-
-
 
 class Accion < Peliculas
 

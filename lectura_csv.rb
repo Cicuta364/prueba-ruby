@@ -5,7 +5,9 @@ require_relative 'peliculas.rb'
 peliculas = []
 csv = CSV.read('dvd_csv_2.csv', headers: true, header_converters: :symbol, converters: :numeric )
 
-[:status, :sound, :versions, :aspect, :upc, :dvd_releasedate, :id, :timestamp, :price].each { |e| csv.delete(e) }
+[:status, :sound, :versions, :released, :aspect, :upc, :dvd_releasedate, :id, :timestamp].each do |key|
+    csv.delete(key)
+  end
 
 peliculas = csv.map(&:to_hash)
 
@@ -26,11 +28,14 @@ peliculas.each do |p|
     comedia << Comedia.new(p)
   when 'Music'
     musica << Musica.new(p)
-  #else
-   # Other.new peliculas
   end
 end
 
 puts '.....'
-p accion
+#p accion
 puts "#{musica.count} peliculas de musica existentes"
+puts "#{comedia.count} peliculas de musica existentes"
+puts "#{drama.count} peliculas de musica existentes"
+puts "#{accion.count} peliculas de musica existentes"
+
+puts drama.estudios
